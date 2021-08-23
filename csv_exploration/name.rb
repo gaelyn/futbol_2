@@ -14,8 +14,8 @@ class Name
     @rank = data[:rank]
   end
 
-  def self.all
-    # all_names into here
+  def self.all_names
+    @all_names ||= load_name_data
   end
 
   def self.load_name_data
@@ -28,9 +28,27 @@ class Name
 
   def self.find_by_name(name_to_find)
     name_to_find.downcase!
-  
-    load_name_data.find_all do |person|
+
+    all_names.find_all do |person|
       person.name == name_to_find
+    end
+  end
+
+  def self.find_by_count(num)
+    all_names.find_all do |person|
+      person.count.to_i == num
+    end
+  end
+
+  def self.find_by_rank(rank)
+    all_names.find_all do |person|
+      person.rank.to_i == rank
+    end
+  end
+
+  def self.find_by_year(year)
+    all_names.find_all do |person|
+      person.year.to_i == year
     end
   end
 end
