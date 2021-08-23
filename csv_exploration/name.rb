@@ -51,4 +51,13 @@ class Name
       person.year.to_i == year
     end
   end
+
+  def self.where(query)
+    find_by = query.keys.first
+    criteria = query[find_by].downcase
+
+    all_names.select do |name|
+      name.send(find_by) == criteria
+    end
+  end
 end

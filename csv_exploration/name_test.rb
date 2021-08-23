@@ -25,4 +25,8 @@ class NameTest < Minitest::Test
     assert_equal result, 0
   end
 
+  def test_where_query
+    result = Name.where(name: 'geraldine').count
+    assert_equal result, 6
+  end
 end
