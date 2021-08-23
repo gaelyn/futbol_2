@@ -18,16 +18,18 @@ class Name
     # all_names into here
   end
 
+  def self.load_name_data
+    rows = CSV.read(@@filename, headers: true, header_converters: :symbol)
+
+    rows.map do |row|
+      Name.new(row)
+    end
+  end
+
   def self.find_by_name(name_to_find)
     name_to_find.downcase!
-    rows = CSV.read(@@filename, headers: true, header_converters: :symbol)
-    all_names = []
-
-    rows.each do |row|
-      all_names << Name.new(row)
-    end
-
-    all_names.find_all do |person|
+  
+    load_name_data.find_all do |person|
       person.name == name_to_find
     end
   end

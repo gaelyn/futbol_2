@@ -11,16 +11,19 @@ class NameTest < Minitest::Test
   end
 
   def test_find_by_count
+    skip
     result = Name.find_by_count(3)
     assert_equal result, 30
   end
 
   def test_find_by_rank
+    skip
     result = Name.find_by_rank(3)
     assert_equal result, 30
   end
 
   def test_find_by_year
+    skip
     result = Name.find_by_year(1989)
     assert_equal result, 30
   end
