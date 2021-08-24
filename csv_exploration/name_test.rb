@@ -28,5 +28,11 @@ class NameTest < Minitest::Test
   def test_where_query
     result = Name.where(name: 'geraldine').count
     assert_equal result, 6
+
+    result = Name.where(year: 2012).count
+    assert_equal result, 5859
+
+    result = Name.where(rank: 1).count
+    assert_equal result, 103
   end
 end

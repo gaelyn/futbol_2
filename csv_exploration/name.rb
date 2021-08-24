@@ -54,7 +54,7 @@ class Name
 
   def self.where(query)
     find_by = query.keys.first
-    criteria = query[find_by].downcase
+    criteria = query[find_by]
 
     all_names.select do |name|
       name.send(find_by) == criteria
