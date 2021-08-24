@@ -60,4 +60,16 @@ class Name
       name.send(find_by) == criteria
     end
   end
+
+  def self.order(query)
+    sort_by = query.keys.first
+    direction = query[sort_by].downcase
+    asc_sorted = all_names.sort_by do |name|
+      name.send(sort_by)
+    end
+
+    asc_sorted.reverse! if direction == :desc
+
+    asc_sorted
+  end
 end

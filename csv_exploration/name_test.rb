@@ -50,4 +50,20 @@ class NameTest < Minitest::Test
     result = Name.where(ethnicity: 'Black Non Hispanic').count
     assert_equal result, 4290
   end
+
+  def test_order_query_asc
+    result =  Name.order( year: :asc).first
+    assert_equal result.year, '2011'
+
+    result =  Name.order( year: :asc).last
+    assert_equal result.year, '2017'
+  end
+
+  def test_order_query_desc
+    result =  Name.order( year: :desc).first
+    assert_equal result.year, '2017'
+
+    result =  Name.order( year: :desc).last
+    assert_equal result.year, '2011'
+  end
 end
