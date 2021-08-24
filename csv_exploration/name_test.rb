@@ -25,14 +25,29 @@ class NameTest < Minitest::Test
     assert_equal result, 0
   end
 
-  def test_where_query
+  def test_where_query_name
     result = Name.where(name: 'geraldine').count
     assert_equal result, 6
+  end
 
-    result = Name.where(year: 2012).count
-    assert_equal result, 5859
+  def test_where_query_rank
+    result = Name.where(rank: '15').count
+    assert_equal result, 145
+  end
 
-    result = Name.where(rank: 1).count
-    assert_equal result, 103
+  def test_where_query_gender
+    male = Name.where(bio_gender: "male").count
+    assert_equal male, 14392
+
+    female = Name.where(bio_gender: "female").count
+    assert_equal female, 15072
+
+    total = male + female
+    assert_equal total, Name.all_names.count
+  end
+
+  def test_where_query_ethnicity
+    result = Name.where(ethnicity: 'Black Non Hispanic').count
+    assert_equal result, 4290
   end
 end
