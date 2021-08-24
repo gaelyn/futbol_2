@@ -34,9 +34,9 @@ class Name
     end
   end
 
-  def self.find_by_count(num)
+  def self.find_by_count(count)
     all_names.find_all do |name|
-      name.count == num
+      name.count == count
     end
   end
 
