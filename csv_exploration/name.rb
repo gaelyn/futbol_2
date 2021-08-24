@@ -29,26 +29,26 @@ class Name
   def self.find_by_name(name_to_find)
     name_to_find.downcase!
 
-    all_names.find_all do |person|
-      person.name == name_to_find
+    all_names.find_all do |name|
+      name.name == name_to_find
     end
   end
 
   def self.find_by_count(num)
-    all_names.find_all do |person|
-      person.count.to_i == num
+    all_names.find_all do |name|
+      name.count.to_i == num
     end
   end
 
   def self.find_by_rank(rank)
-    all_names.find_all do |person|
-      person.rank.to_i == rank
+    all_names.find_all do |name|
+      name.rank.to_i == rank
     end
   end
 
   def self.find_by_year(year)
-    all_names.find_all do |person|
-      person.year.to_i == year
+    all_names.find_all do |name|
+      name.year.to_i == year
     end
   end
 
