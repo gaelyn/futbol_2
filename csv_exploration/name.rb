@@ -6,12 +6,12 @@ class Name
   @@filename = 'Popular_Baby_Names.csv'
 
   def initialize(data)
-    @year = data[:year_of_birth]
+    @year = data[:year_of_birth].to_i
     @bio_gender = data[:gender]
     @ethnicity = data[:ethnicity]
     @name = data[:childs_first_name].downcase
-    @count = data[:count]
-    @rank = data[:rank]
+    @count = data[:count].to_i
+    @rank = data[:rank].to_i
   end
 
   def self.all_names
@@ -36,19 +36,19 @@ class Name
 
   def self.find_by_count(num)
     all_names.find_all do |name|
-      name.count.to_i == num
+      name.count == num
     end
   end
 
   def self.find_by_rank(rank)
     all_names.find_all do |name|
-      name.rank.to_i == rank
+      name.rank == rank
     end
   end
 
   def self.find_by_year(year)
     all_names.find_all do |name|
-      name.year.to_i == year
+      name.year == year
     end
   end
 
