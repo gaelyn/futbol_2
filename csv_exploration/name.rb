@@ -53,12 +53,30 @@ class Name
   end
 
   def self.where(query)
-    find_by = query.keys.first
-    criteria = query[find_by].downcase
+    results = []
+    query.each do |q|
+      results << select_by_query(q)
+    end
+    intersection_of_query_results(results)
+  end
 
+  def self.select_by_query(q)
+    find_by = q.first
+    criteria = q.last.downcase
     all_names.select do |name|
       name.send(find_by) == criteria
     end
+  end
+
+  def self.intersection_of_query_results(results)
+    return results.flatten if results.count == 1
+    array = results.first
+
+    results.each_with_index do |_,i|
+      break if i == (results.count - 1)
+      array = array & results[i+1]
+    end
+    array
   end
 
   def self.order(query)
@@ -67,7 +85,6 @@ class Name
     asc_sorted = all_names.sort_by do |name|
       name.send(sort_by)
     end
-
     asc_sorted.reverse! if direction == :desc
 
     asc_sorted
