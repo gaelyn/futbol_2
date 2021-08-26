@@ -5,44 +5,44 @@ require 'minitest/pride'
 
 class NameTest < Minitest::Test
   def test_find_by_name_regardless_of_capitalization
-    skip
+    # skip
     assert_equal Name.find_by_name('GIA').count, 31
     assert_equal Name.find_by_name('gia').count, 31
     assert_equal Name.find_by_name('Gia').count, 31
   end
 
   def test_find_by_count
-    skip
+    # skip
     result = Name.find_by_count(30).count
     assert_equal result, 370
   end
 
   def test_find_by_rank
-    skip
+    # skip
     result = Name.find_by_rank(3).count
     assert_equal result, 116
   end
 
   def test_find_by_year
-    skip
+    # skip
     result = Name.find_by_year(1989).count
     assert_equal result, 0
   end
 
   def test_where_query_name
-    skip
+    # skip
     result = Name.where(name: 'geraldine').count
     assert_equal result, 6
   end
 
   def test_where_query_rank
-    skip
+    # skip
     result = Name.where(rank: '15').count
     assert_equal result, 145
   end
 
   def test_where_query_gender
-    skip
+    # skip
     male = Name.where(bio_gender: "male").count
     assert_equal male, 14392
 
@@ -54,13 +54,13 @@ class NameTest < Minitest::Test
   end
 
   def test_where_query_ethnicity
-    skip
+    # skip
     result = Name.where(ethnicity: 'Black Non Hispanic').count
     assert_equal result, 5324
   end
 
   def test_order_query_asc
-    skip
+    # skip
     result =  Name.order( year: :asc).first
     assert_equal result.year, '2011'
 
@@ -69,7 +69,7 @@ class NameTest < Minitest::Test
   end
 
   def test_order_query_desc
-    skip
+    # skip
     result =  Name.order( year: :desc).first
     assert_equal result.year, '2017'
 
@@ -78,7 +78,7 @@ class NameTest < Minitest::Test
   end
 
   def test_two_queries
-    skip
+    # skip
     result = Name.where(year: "2011", ethnicity: "asian and pacific islander")
     assert_equal result.count, 919
     assert_equal result.first.year, '2011'
@@ -86,7 +86,7 @@ class NameTest < Minitest::Test
   end
 
   def test_three_queries
-    skip
+    # skip
     result = Name.where(ethnicity: 'hispanic', year: "2011", name: "geraldine")
     assert_equal result.count, 3
     assert_equal result.first.year, '2011'
@@ -95,7 +95,7 @@ class NameTest < Minitest::Test
   end
 
   def test_four_queries
-    skip
+    # skip
     result = Name.where(bio_gender: 'female', ethnicity: 'hispanic', year: "2011", name: "geraldine")
     assert_equal result.count, 3
     assert_equal result.first.year, '2011'
@@ -105,8 +105,8 @@ class NameTest < Minitest::Test
   end
 
   def test_ordering_by_more_than_one_parameter
-    # skip
+    skip
     results = Name.order( { ethnicity: :asc, name: :descending } )
-    
+
   end
 end
