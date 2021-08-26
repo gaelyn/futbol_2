@@ -1,5 +1,5 @@
 require 'csv'
-require 'pry'
+require 'active_support/core_ext/string/inflections'
 
 class Name
   attr_reader :year, :bio_gender, :ethnicity, :name, :count, :rank
@@ -8,11 +8,49 @@ class Name
   def initialize(data)
     @year = data[:year_of_birth]
     @bio_gender = data[:gender].downcase
-    @ethnicity = data[:ethnicity].downcase
+    @ethnicity = standardize_ethnicity(data[:ethnicity])
     @name = data[:childs_first_name].downcase
     @count = data[:count]
     @rank = data[:rank]
   end
+
+  def standardize_ethnicity(ethnicity)
+    ethnicity = ethnicity.downcase
+
+    if ethnicity == "asian and paci"
+      ethnicity = "asian and pacific islander"
+    elsif ethnicity == "black non hisp"
+      ethnicity = "black non hispanic"
+    elsif ethnicity == "white non hisp"
+      ethnicity = "white non hispanic"
+    else
+      ethnicity
+    end
+  end
+
+  # def standardize_ethnicity(ethnicity)
+    # ethnicity = ethnicity.downcase.parameterize(separator: '_').to_sym
+    # valid_ethnicities_list = %i[
+		# 	black_non_hispanic
+		# 	asian_and_pacific_islander
+		# 	white_non_hispanic
+		# 	hispanic
+		# ]
+    #
+    # invalid_input_ethnicity_conversion = {
+    #   asian_and_paci: :asian_and_pacific_islander,
+    #   black_non_hisp: :black_non_hispanic,
+    #   white_non_hisp: :white_non_hispanic
+    # }
+    #
+    # if valid_ethnicities_list.include?(ethnicity)
+    #   ethnicity
+    # elsif invalid_input_ethnicity_conversion[ethnicity]
+    #   invalid_input_ethnicity_conversion[ethnicity]
+    # else
+    #   raise "Invalid NameEthnicity: #{ethnicity}"
+    # end
+  # end
 
   def self.all_names
     @all_names ||= load_name_data
