@@ -38,3 +38,6 @@ require 'minitest/pride'
 require './lib/game.rb'
 require './lib/team.rb'
 ```
+
+#### Rakefile
+Because I added Rakefile to root directory, we can run `rake` from the terminal to run all tests
