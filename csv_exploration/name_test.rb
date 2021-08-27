@@ -105,7 +105,7 @@ class NameTest < Minitest::Test
   end
 
   def test_ordering_by_more_than_one_parameter
-    # skip
+    skip
     results = Name.order( { ethnicity: :asc, name: :descending } )
 
   end
