@@ -33,4 +33,10 @@ class GameTest < Minitest::Test
     # skip
     assert_instance_of Team, @game.away_team
   end
+
+  def test_home_team_returns_a_team_object
+    # skip
+    assert_instance_of Team, @game.home_team
+    assert_equal @game.home_team_id, @game.home_team.team_id
+  end
 end

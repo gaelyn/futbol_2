@@ -15,7 +15,7 @@ class Game
     @type         = data[2]
     @date_time    = data[3]
     @away_team_id = data[4].to_i
-    @home_team_id = data[5]
+    @home_team_id = data[5].to_i
     @away_goals   = data[6]
     @home_goals   = data[7]
     @venue        = data[8]
@@ -24,5 +24,9 @@ class Game
 
   def away_team
     Team.find(away_team_id)
+  end
+
+  def home_team
+    Team.find(home_team_id)
   end
 end
