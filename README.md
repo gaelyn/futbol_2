@@ -26,4 +26,5 @@ git remote add origin git@github.com:gaelyn/futbol_2.git
 
 ## Turing CSV Exploration Lesson
 
-https://backend.turing.edu/module1/lessons/class_methods
+[Turing's Class Method Exploration](https://backend.turing.edu/module1/lessons/class_methods)  
+[Josh's Walkthrough](https://github.com/josh-works/futbol/tree/main/csv_exploration_lesson)
