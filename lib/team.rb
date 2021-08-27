@@ -29,7 +29,7 @@ class Team
   end
 
   def self.find(id)
-    all.find {|team| team.id == id }
+    all.find {|team| team.team_id == id }
   end
 
   private
