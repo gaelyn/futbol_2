@@ -66,12 +66,20 @@ class Name
   end
 
   def self.where(query)
-    results = []
-    query.each do |q|
-      results << select_by_query(q)
+    query.reduce([]) do |acc, q|
+      data = Name.select_by_query(q)
+      acc = data if acc.empty?
+      acc = acc & data
     end
-    intersection_of_query_results(results)
   end
+
+  # def self.where(query)
+  #   results = []
+  #   query.each do |q|
+  #     results << select_by_query(q)
+  #   end
+  #   intersection_of_query_results(results)
+  # end
 
   def self.select_by_query(q)
     find_by = q.first
@@ -81,16 +89,16 @@ class Name
     end
   end
 
-  def self.intersection_of_query_results(results)
-    return results.flatten if results.count == 1
-    array = results.first
-
-    results.each_with_index do |_,i|
-      break if i == (results.count - 1)
-      array = array & results[i+1]
-    end
-    array
-  end
+  # def self.intersection_of_query_results(results)
+  #   return results.flatten if results.count == 1
+  #   array = results.first
+  #
+  #   results.each_with_index do |_,i|
+  #     break if i == (results.count - 1)
+  #     array = array & results[i+1]
+  #   end
+  #   array
+  # end
 
   def self.order(query)
     sort_by = query.keys.first
