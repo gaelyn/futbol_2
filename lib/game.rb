@@ -1,4 +1,5 @@
 class Game
+  @@filename = './data/games.csv'
   attr_reader :game_id,
               :season,
               :type,
@@ -10,16 +11,20 @@ class Game
               :venue,
               :venue_link
   def initialize(data)
-    @game_id      = data[0]
-    @season       = data[1]
-    @type         = data[2]
-    @date_time    = data[3]
-    @away_team_id = data[4].to_i
-    @home_team_id = data[5].to_i
-    @away_goals   = data[6]
-    @home_goals   = data[7]
-    @venue        = data[8]
-    @venue_link   = data[9]
+    @game_id      = data[:game_id]
+    @season       = data[:season]
+    @type         = data[:type]
+    @date_time    = data[:date_time]
+    @away_team_id = data[:away_team_id].to_i
+    @home_team_id = data[:home_team_id].to_i
+    @away_goals   = data[:away_goals]
+    @home_goals   = data[:home_goals]
+    @venue        = data[:venue]
+    @venue_link   = data[:venue_link]
+  end
+
+  def self.all
+    @all ||= load_games_data
   end
 
   def away_team
@@ -28,5 +33,15 @@ class Game
 
   def home_team
     Team.find(home_team_id)
+  end
+
+  private
+
+  def self.load_games_data
+    rows = CSV.read(@@filename, headers: true, header_converters: :symbol)
+
+    rows.map do |row|
+      Game.new(row)
+    end
   end
 end

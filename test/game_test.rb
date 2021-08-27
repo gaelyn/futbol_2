@@ -3,8 +3,19 @@ require './test/test_helper'
 class GameTest < Minitest::Test
 
   def setup
-    data = "2012030221,20122013,Postseason,5/16/13,3,6,2,3,Toyota Stadium,/api/v1/venues/null".split(',')
+    data = {game_id:"2012030221",
+            season:"20122013",
+            type:"Postseason",
+            date_time:"5/16/13",
+            away_team_id:"3",
+            home_team_id:"6",
+            away_goals:"2",
+            home_goals:"3",
+            venue:"Toyota Stadium",
+            venue_link:"/api/v1/venues/null"}
+    # data = "2012030221,20122013,Postseason,5/16/13,3,6,2,3,Toyota Stadium,/api/v1/venues/null".split(',')
     @game = Game.new(data)
+    @all_games = Game.all
   end
 
   def test_it_exists
@@ -27,6 +38,12 @@ class GameTest < Minitest::Test
     assert @game.home_goals
     assert @game.venue
     assert @game.venue_link
+  end
+
+  def test_find_all_games
+    # skip
+    assert_equal 7441, @all_games.count
+    assert_instance_of Game, @all_games.first
   end
 
   def test_away_team_returns_a_team_object
