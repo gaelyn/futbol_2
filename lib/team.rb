@@ -10,18 +10,12 @@ class Team
               :link,
               :all
   def initialize(data)
-    @team_id = data[0].to_i
-    @franchise_id = data[1]
-    @team_name = data[2]
-    @abbreviation = data[3]
-    @stadium = data[4]
-    @link = data[5]
-    # @team_id = data[:team_id].to_i
-    # @franchise_id = data[:franchiseid]
-    # @team_name = data[:teamname]
-    # @abbreviation = data[:abbreviation]
-    # @stadium = data[:stadium]
-    # @link = data[:link]
+    @team_id = data[:team_id].to_i
+    @franchise_id = data[:franchiseid]
+    @team_name = data[:teamname]
+    @abbreviation = data[:abbreviation]
+    @stadium = data[:stadium]
+    @link = data[:link]
   end
 
   def self.all

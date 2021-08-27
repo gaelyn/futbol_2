@@ -3,7 +3,12 @@ require './test/test_helper'
 class TeamTest < Minitest::Test
 
   def setup
-    data = "1,23,Atlanta United,ATL,Mercedes-Benz Stadium,/api/v1/teams/1".split(",")
+    data = {team_id:"1",
+            franchiseid:"23",
+            teamname:"Atlanta United",
+            abbreviation:"ATL",
+            stadium:"Mercedes-Benz Stadium",
+            link:"/api/v1/teams/1"}
     @team = Team.new(data)
     @all_teams = Team.all
   end
@@ -37,5 +42,4 @@ class TeamTest < Minitest::Test
 	   assert_instance_of Team, result
      assert_equal 1, result.team_id
   end
-
 end
