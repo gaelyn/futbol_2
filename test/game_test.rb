@@ -17,15 +17,19 @@ class GameTest < Minitest::Test
    # game_id,season,type,date_time,away_team_id,home_team_id,
    # away_goals,home_goals,venue,venue_link
    #
-   assert @game.game_id
-   assert @game.season
-   assert @game.type
-   assert @game.date_time
-   assert @game.away_team_id
-   assert @game.home_team_id
-   assert @game.away_goals
-   assert @game.home_goals
-   assert @game.venue
-   assert @game.venue_link
+    assert @game.game_id
+    assert @game.season
+    assert @game.type
+    assert @game.date_time
+    assert @game.away_team_id
+    assert @game.home_team_id
+    assert @game.away_goals
+    assert @game.home_goals
+    assert @game.venue
+    assert @game.venue_link
+  end
+
+  def test_away_team_returns_a_team_object
+    assert_instance_of Team, @game.away_team
   end
 end
