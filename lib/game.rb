@@ -14,7 +14,7 @@ class Game
     @season       = data[1]
     @type         = data[2]
     @date_time    = data[3]
-    @away_team_id = data[4]
+    @away_team_id = data[4].to_i
     @home_team_id = data[5]
     @away_goals   = data[6]
     @home_goals   = data[7]

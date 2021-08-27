@@ -30,7 +30,7 @@ class GameTest < Minitest::Test
   end
 
   def test_away_team_returns_a_team_object
-    skip
+    # skip
     assert_instance_of Team, @game.away_team
   end
 end
