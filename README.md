@@ -28,3 +28,13 @@ git remote add origin git@github.com:gaelyn/futbol_2.git
 
 [Turing's Class Method Exploration](https://backend.turing.edu/module1/lessons/class_methods)  
 [Josh's Walkthrough](https://github.com/josh-works/futbol/tree/main/csv_exploration_lesson)
+
+## Testing
+Added a test helper file that encapsulates gems and requirements for tests into one file. Now you just have to put `require './test/test_helper'` at the top of each test and the following in `test/test_helper.rb`:  
+```ruby
+gem 'minitest', '~> 5.2'
+require 'minitest/autorun'
+require 'minitest/pride'
+require './lib/game.rb'
+require './lib/team.rb'
+```
