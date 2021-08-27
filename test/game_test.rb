@@ -8,10 +8,12 @@ class GameTest < Minitest::Test
   end
 
   def test_it_exists
+    # skip
     assert_instance_of Game, @game
   end
 
   def test_it_has_attributes
+    # skip
    # game_id,season,type,date_time,away_team_id,home_team_id,
    # away_goals,home_goals,venue,venue_link
    #
@@ -28,6 +30,7 @@ class GameTest < Minitest::Test
   end
 
   def test_away_team_returns_a_team_object
+    skip
     assert_instance_of Team, @game.away_team
   end
 end
