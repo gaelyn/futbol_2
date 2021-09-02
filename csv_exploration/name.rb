@@ -65,11 +65,10 @@ class Name
     end
   end
 
-  def self.where(query)
-    query.reduce([]) do |acc, q|
-      data = Name.select_by_query(q)
-      acc = data if acc.empty?
-      acc = acc & data
+  def self.where(q)
+    q.reduce([]) do |results, query|
+      results = select_by_query(query) if results.empty?
+      results & select_by_query(query)
     end
   end
 

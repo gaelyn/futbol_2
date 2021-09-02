@@ -31,8 +31,8 @@ class NameTest < Minitest::Test
 
   def test_where_query_name
     # skip
-    result = Name.where(name: 'geraldine').count
-    assert_equal result, 6
+    result = Name.where(name: 'geraldine')
+    assert_equal result.count, 6
   end
 
   def test_where_query_rank
@@ -88,7 +88,7 @@ class NameTest < Minitest::Test
   def test_three_queries
     # skip
     result = Name.where(ethnicity: 'hispanic', year: "2011", name: "geraldine")
-    assert_equal result.count, 3
+    assert_equal 3, result.count
     assert_equal result.first.year, '2011'
     assert_equal result.first.ethnicity, 'hispanic'
     assert_equal result.first.name, 'geraldine'
@@ -97,7 +97,7 @@ class NameTest < Minitest::Test
   def test_four_queries
     # skip
     result = Name.where(bio_gender: 'female', ethnicity: 'hispanic', year: "2011", name: "geraldine")
-    assert_equal result.count, 3
+    assert_equal 3, result.count
     assert_equal result.first.year, '2011'
     assert_equal result.first.ethnicity, 'hispanic'
     assert_equal result.first.name, 'geraldine'
