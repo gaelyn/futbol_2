@@ -9,6 +9,7 @@ class Team
               :stadium,
               :link,
               :all
+              
   def initialize(data)
     @team_id = data[:team_id].to_i
     @franchise_id = data[:franchiseid]

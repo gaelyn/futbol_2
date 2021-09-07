@@ -10,6 +10,7 @@ class Game
               :home_goals,
               :venue,
               :venue_link
+              
   def initialize(data)
     @game_id      = data[:game_id]
     @season       = data[:season]
