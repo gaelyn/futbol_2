@@ -26,7 +26,7 @@ class GameTest < Minitest::Test
     # skip
    # game_id,season,type,date_time,away_team_id,home_team_id,
    # away_goals,home_goals,venue,venue_link
-   #
+
     assert @game.game_id
     assert @game.season
     assert @game.type
@@ -58,6 +58,7 @@ class GameTest < Minitest::Test
   end
 
   def test_winner_returns_team_object
+    # skip
     assert_instance_of Team, @game.winner
   end
 end
