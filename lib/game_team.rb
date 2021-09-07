@@ -39,14 +39,18 @@ class GameTeam
   end
 
   def self.winner_of_game(game_id)
-    self.find_by_game_id(game_id)
-  end
-
-  def self.find_by_game_id(game_id)
-    all.find_all do |game_team|
-
+    find_game_team = all.find do |game_team|
+      (game_team.game_id == game_id) && (game_team.result == "WIN")
     end
+    return nil if find_game_team.nil?
+    Team.find(find_game_team.team_id)
   end
+
+  # def self.find_by_game_id(game_id)
+  #   all.find do |game_team|
+  #     (game_team.game_id == game_id) && (game_team.result == "WIN")
+  #   end
+  # end
 
   private
 

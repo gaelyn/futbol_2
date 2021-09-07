@@ -6,7 +6,7 @@ class GameTeamTest < Minitest::Test
     data = {game_id:"2012030221",
             team_id:"3",
             hoa:"away",
-            result:"LOSS",
+            result:"WIN",
             settled_in:"OT",
             head_coach:"John Tortorella",
             goals:"2",
@@ -28,7 +28,7 @@ class GameTeamTest < Minitest::Test
   end
 
   def test_it_has_attributes
-    skip
+    # skip
     assert @game_team.game_id
     assert @game_team.team_id
     assert @game_team.hoa
@@ -46,7 +46,7 @@ class GameTeamTest < Minitest::Test
   end
 
   def test_find_all_game_teams
-    skip
+    # skip
     assert_equal 14882, @all_game_teams.count
     assert_instance_of GameTeam, @all_game_teams.first
   end
@@ -68,8 +68,19 @@ class GameTeamTest < Minitest::Test
   end
 
   def test_winner_of_game_returns_nil_if_tie
-    skip
-
+    # skip
+    # data = {game_id:"2012030221",
+    #         season:"20122013",
+    #         type:"Postseason",
+    #         date_time:"5/16/13",
+    #         away_team_id:"3",
+    #         home_team_id:"6",
+    #         away_goals:"2",
+    #         home_goals:"3",
+    #         venue:"Toyota Stadium",
+    #         venue_link:"/api/v1/venues/null"}
+    # game = Game.new(data)
+    assert_nil GameTeam.winner_of_game(2012030121)
   end
 
   def test_find_by_game_id_returns_game_team_with_given_game_id
@@ -85,8 +96,7 @@ class GameTeamTest < Minitest::Test
             venue:"Toyota Stadium",
             venue_link:"/api/v1/venues/null"}
     game = Game.new(data)
-    require "pry"; binding.pry
-    assert_equal GameTeam.find_by_game_id(game.game_id), @game_team
+    assert_equal @game_team, GameTeam.find_by_game_id(game.game_id)
   end
 
 end
