@@ -18,24 +18,34 @@ class GameTeam
               :takeaways
 
   def initialize(data)
-    @game_id = data[:game_id].to_i,
-    @team_id = data[:team_id].to_i,
-    @hoa = data[:hoa],
-    @result = data[:result],
-    @settled_in = data[:settled_in],
-    @head_coach = data[:head_coach],
-    @goals = data[:goals].to_i,
-    @shots = data[:shots].to_i,
-    @tackles = data[:tackles].to_i,
-    @pim = data[:pim].to_i,
-    @power_play_opps = data[:powerplayopportunities].to_i,
-    @face_off_win_percentage = data[:faceoffwinpercentage].to_f,
-    @giveaways = data[:giveaways].to_i,
+    @game_id = data[:game_id].to_i
+    @team_id = data[:team_id].to_i
+    @hoa = data[:hoa]
+    @result = data[:result]
+    @settled_in = data[:settled_in]
+    @head_coach = data[:head_coach]
+    @goals = data[:goals].to_i
+    @shots = data[:shots].to_i
+    @tackles = data[:tackles].to_i
+    @pim = data[:pim].to_i
+    @power_play_opps = data[:powerplayopportunities].to_i
+    @face_off_win_percentage = data[:faceoffwinpercentage].to_f
+    @giveaways = data[:giveaways].to_i
     @takeaways = data[:takeaways].to_i
   end
 
   def self.all
     @all ||= load_game_team_data
+  end
+
+  def self.winner_of_game(game_id)
+    self.find_by_game_id(game_id)
+  end
+
+  def self.find_by_game_id(game_id)
+    all.find_all do |game_team|
+
+    end
   end
 
   private

@@ -13,7 +13,6 @@ class GameTest < Minitest::Test
             home_goals:"3",
             venue:"Toyota Stadium",
             venue_link:"/api/v1/venues/null"}
-    # data = "2012030221,20122013,Postseason,5/16/13,3,6,2,3,Toyota Stadium,/api/v1/venues/null".split(',')
     @game = Game.new(data)
     @all_games = Game.all
   end
@@ -56,5 +55,9 @@ class GameTest < Minitest::Test
     # skip
     assert_instance_of Team, @game.home_team
     assert_equal @game.home_team_id, @game.home_team.team_id
+  end
+
+  def test_winner_returns_team_object
+    assert_instance_of Team, @game.winner
   end
 end
