@@ -46,12 +46,6 @@ class GameTeam
     Team.find(find_game_team.team_id)
   end
 
-  # def self.find_by_game_id(game_id)
-  #   all.find do |game_team|
-  #     (game_team.game_id == game_id) && (game_team.result == "WIN")
-  #   end
-  # end
-
   private
 
   def self.load_game_team_data

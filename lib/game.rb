@@ -37,7 +37,6 @@ class Game
   end
 
   def winner
-    require "pry"; binding.pry
     GameTeam.winner_of_game(self.game_id)
   end
 
