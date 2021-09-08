@@ -9,7 +9,7 @@ class Team
               :stadium,
               :link,
               :all
-              
+
   def initialize(data)
     @team_id = data[:team_id].to_i
     @franchise_id = data[:franchiseid]
@@ -18,6 +18,8 @@ class Team
     @stadium = data[:stadium]
     @link = data[:link]
   end
+
+  alias_method :id, :team_id
 
   def self.all
     @all ||= load_teams_data

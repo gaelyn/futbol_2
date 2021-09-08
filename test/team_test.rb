@@ -42,4 +42,9 @@ class TeamTest < Minitest::Test
 	   assert_instance_of Team, result
      assert_equal 1, result.team_id
   end
+
+  def test_alias_id_to_team_id
+    # skip
+    assert_equal @team.id, @team.team_id
+  end
 end
