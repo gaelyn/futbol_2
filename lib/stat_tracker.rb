@@ -1,5 +1,6 @@
 class StatTracker
-  def self.from_csv(locations)
-    
+  def highest_total_score
+    GameStats.highest_total_score
   end
+
 end
