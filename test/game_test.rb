@@ -66,4 +66,10 @@ class GameTest < Minitest::Test
     # skip
     assert_equal @game.id, @game.game_id
   end
+
+  def test_find_returns_game_by_id
+    # skip
+    game = Game.find(2012030221)
+    assert_equal game.id, @game.id
+  end
 end

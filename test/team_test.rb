@@ -47,4 +47,10 @@ class TeamTest < Minitest::Test
     # skip
     assert_equal @team.id, @team.team_id
   end
+
+  def test_find_returns_team_by_id
+    # skip
+    team = Team.find(1)
+    assert_equal team.id, @team.id
+  end
 end

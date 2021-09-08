@@ -1,5 +1,5 @@
-require 'csv'
-require './modules/finder.rb'
+# require 'csv'
+require './lib/modules/finder'
 
 class Team
   extend Finder
