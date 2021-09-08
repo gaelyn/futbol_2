@@ -1,6 +1,8 @@
 require 'csv'
+require './lib/modules/finder'
 
 class GameTeam
+  extend Finder
   @@filename = './data/game_teams.csv'
   attr_reader :game_id,
               :team_id,
@@ -34,9 +36,9 @@ class GameTeam
     @takeaways = data[:takeaways].to_i
   end
 
-  def self.all
-    @all ||= load_game_team_data
-  end
+  # def self.all
+  #   @all ||= load_game_team_data
+  # end
 
   def self.winner_of_game(game_id)
     find_game_team = all.find do |game_team|
@@ -48,7 +50,7 @@ class GameTeam
 
   private
 
-  def self.load_game_team_data
+  def self.load_data
     rows = CSV.read(@@filename, headers: true, header_converters: :symbol)
 
     rows.map do |row|

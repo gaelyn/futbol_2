@@ -1,4 +1,4 @@
-# require 'csv'
+require 'csv'
 require './lib/modules/finder'
 
 class Game
