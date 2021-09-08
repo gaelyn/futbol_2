@@ -19,4 +19,8 @@ class StatTrackerTest < Minitest::Test
   def test_lowest_total_score_returns_lowest_sum_of_both_teams_scores
     assert_equal 0, @stat_tracker.lowest_total_score
   end
+
+  def test_percentage_home_wins_returns_percent_home_games_won
+    assert_equal 0, @stat_tracker.percent_home_wins
+  end
 end

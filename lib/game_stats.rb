@@ -12,4 +12,8 @@ class GameStats
     end
     low_scoring_game.away_goals + low_scoring_game.home_goals
   end
+
+  def self.percent_home_wins
+
+  end
 end
