@@ -1,4 +1,5 @@
 require 'csv'
+require './modules/finder.rb'
 
 class Team
   extend Finder
@@ -22,17 +23,9 @@ class Team
 
   alias_method :id, :team_id
 
-  def self.all
-    @all ||= load_teams_data
-  end
-
-  def self.find(id)
-    all.find {|team| team.team_id == id }
-  end
-
   private
 
-  def self.load_teams_data
+  def self.load_data
     rows = CSV.read(@@filename, headers: true, header_converters: :symbol)
 
     rows.map do |row|
