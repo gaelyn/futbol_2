@@ -24,6 +24,8 @@ class Game
     @venue_link   = data[:venue_link]
   end
 
+  alias_method :id, :game_id
+
   def self.all
     @all ||= load_games_data
   end

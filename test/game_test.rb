@@ -61,4 +61,9 @@ class GameTest < Minitest::Test
     # skip
     assert_instance_of Team, @game.winner
   end
+
+  def test_alias_id_to_game_id
+    # skip
+    assert_equal @game.id, @game.game_id
+  end
 end
