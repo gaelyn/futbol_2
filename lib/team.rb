@@ -1,6 +1,7 @@
 require 'csv'
 
 class Team
+  extend Finder
   @@filename = './data/teams.csv'
   attr_reader :team_id,
               :franchise_id,
