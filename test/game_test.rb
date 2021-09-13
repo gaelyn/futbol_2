@@ -81,4 +81,9 @@ class GameTest < Minitest::Test
     game = Game.find(2012030221)
     assert_equal game.id, @game.id
   end
+
+  def test_total_score_returns_away_goals_plus_home_goals
+    # skip
+    assert_equal 5, @game.total_score
+  end
 end

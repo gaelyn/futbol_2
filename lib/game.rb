@@ -49,6 +49,10 @@ class Game
     return home_team if !home_team_won?
   end
 
+  def total_score
+    away_goals + home_goals
+  end
+
   private
 
   def away_team_won?
