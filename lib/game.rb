@@ -53,6 +53,14 @@ class Game
     away_goals + home_goals
   end
 
+  def self.sort_by_total_score(sort: :asc)
+    sorted = all.sort_by do |game|
+      game.total_score
+    end
+    sorted.reverse! if sort == :desc
+    sorted
+  end
+
   private
 
   def away_team_won?
