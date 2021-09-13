@@ -48,4 +48,14 @@ class Game
     return away_team if !away_team_won?
     return home_team if !home_team_won?
   end
+
+  private
+
+  def away_team_won?
+    away_goals > home_goals
+  end
+
+  def home_team_won?
+    home_goals > away_goals
+  end
 end

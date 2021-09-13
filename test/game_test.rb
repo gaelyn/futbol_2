@@ -57,9 +57,18 @@ class GameTest < Minitest::Test
     assert_equal @game.home_team_id, @game.home_team.team_id
   end
 
-  def test_winner_returns_team_object
+  def test_winner_returns_winning_team_object
     # skip
+    winner = @game.winner
     assert_instance_of Team, @game.winner
+  end
+
+  def test_loser_returns_losing_team_object
+    # skip
+    loser = @game.loser
+    winner = @game.winner
+    assert_instance_of Team, loser
+    refute_equal loser.team_id, winner.team_id
   end
 
   def test_alias_id_to_game_id
