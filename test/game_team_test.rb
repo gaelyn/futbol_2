@@ -29,20 +29,20 @@ class GameTeamTest < Minitest::Test
 
   def test_it_has_attributes
     # skip
-    assert @game_team.game_id
-    assert @game_team.team_id
+    assert_instance_of Integer, @game_team.game_id
+    assert_instance_of Integer, @game_team.team_id
     assert @game_team.hoa
     assert @game_team.result
     assert @game_team.settled_in
     assert @game_team.head_coach
-    assert @game_team.goals
-    assert @game_team.shots
-    assert @game_team.tackles
-    assert @game_team.pim
-    assert @game_team.power_play_opps
-    assert @game_team.face_off_win_percentage
-    assert @game_team.giveaways
-    assert @game_team.takeaways
+    assert_instance_of Integer, @game_team.goals
+    assert_instance_of Integer, @game_team.shots
+    assert_instance_of Integer, @game_team.tackles
+    assert_instance_of Integer, @game_team.pim
+    assert_instance_of Integer, @game_team.power_play_opps
+    assert_instance_of Float, @game_team.face_off_win_percentage
+    assert_instance_of Integer, @game_team.giveaways
+    assert_instance_of Integer, @game_team.takeaways
   end
 
   def test_find_all_game_teams

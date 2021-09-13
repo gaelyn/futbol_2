@@ -14,6 +14,7 @@ class GameStats
   end
 
   def self.percent_home_wins
-
+    home_wins = GameTeam.where(hoa: "home", result: "WIN")
+    home_wins / Game.all.count
   end
 end
