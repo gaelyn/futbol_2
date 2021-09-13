@@ -7,6 +7,10 @@ class StatTracker
   end
 
   def highest_total_score
-    GameStats.highest_total_score
+    # GameStats.highest_total_score
+    game = Game.all.max_by do |game|
+      game.total_score
+    end
+    game.total_score
   end
 end
