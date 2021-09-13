@@ -1,4 +1,5 @@
 require './test/test_helper'
+# require_relative './test/test_helper'
 
 class StatTrackerTest < Minitest::Test
 
@@ -10,7 +11,9 @@ class StatTrackerTest < Minitest::Test
     assert_instance_of StatTracker, @stat_tracker
   end
 
-  # GAME STATISTICS
+  ###################
+  # GAME STATISTICS #
+  ###################
 
   def test_highest_total_score_returns_highest_sum_of_both_teams_scores
     # skip
@@ -26,4 +29,16 @@ class StatTrackerTest < Minitest::Test
     skip
     assert_equal 0, @stat_tracker.percent_home_wins
   end
+
+  #####################
+  # LEAGUE STATISTICS #
+  #####################
+
+  #####################
+  # SEASON STATISTICS #
+  #####################
+
+  ###################
+  # TEAM STATISTICS #
+  ###################
 end

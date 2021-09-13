@@ -1,3 +1,5 @@
+require_relative './helper'
+
 class GameStats
   def self.highest_total_score
     high_scoring_game = Game.all.max_by do |game|
