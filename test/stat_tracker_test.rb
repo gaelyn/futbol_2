@@ -13,14 +13,17 @@ class StatTrackerTest < Minitest::Test
   # GAME STATISTICS
 
   def test_highest_total_score_returns_highest_sum_of_both_teams_scores
+    # skip
     assert_equal 11, @stat_tracker.highest_total_score
   end
 
   def test_lowest_total_score_returns_lowest_sum_of_both_teams_scores
+    skip
     assert_equal 0, @stat_tracker.lowest_total_score
   end
 
   def test_percentage_home_wins_returns_percent_home_games_won
+    skip
     assert_equal 0, @stat_tracker.percent_home_wins
   end
 end
